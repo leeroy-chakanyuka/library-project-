@@ -8,13 +8,13 @@ public class LibraryProject {
 
  
     public static void main(String[] args) {
-        
+        ArrayList<Book> books = new ArrayList<>();
         
     }    
     
     
-    public String search (String crit){
-        ArrayList<Book> books = new ArrayList<>();
+    public String search (ArrayList<Book> books, String crit){
+        
         books.add(new Book("The Great Adventure", "123-456-789", 2001, "John Doe"));
         books.add(new Book("Mystery of the Lost Island", "123-456-790", 2002, "Jane Smith"));
         books.add(new Book("Secrets of the Universe", "123-456-791", 2003, "Emily Johnson"));
@@ -60,9 +60,14 @@ public class LibraryProject {
         books.add(new Book("The Hidden Kingdom", "123-456-831", 2043, "Harper Gonzalez"));
         books.add(new Book("The Golden Phoenix", "123-456-832", 2044, "Elijah Turner"));
         books.add(new Book("The Midnight Sun", "123-456-833", 2045, "Sofia Collins"));
-
+        
+        String returnString ="";
         for(Book book : books){
-            
+            if(book.getBookName().equalsIgnoreCase(crit)){
+                
+            returnString = "Yes we do have that book \n" ;
+                return 
+            }
         }
         return "";
    
