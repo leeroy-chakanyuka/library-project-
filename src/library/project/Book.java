@@ -5,11 +5,21 @@ public class Book {
     private String bookName;
     private String ISBN; 
     private int yearPub;
+    private String author;
 
-    public Book(String bookName, String ISBN, int yearPub) {
+    public Book(String bookName, String ISBN, int yearPub, String author) {
         this.bookName = bookName;
         this.ISBN = ISBN;
         this.yearPub = yearPub;
+        this.author = author;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
     
     public String getBookName() {
