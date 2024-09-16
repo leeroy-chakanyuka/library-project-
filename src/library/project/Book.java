@@ -6,45 +6,37 @@ public class Book {
     private String ISBN; 
     private int yearPub;
     private String author;
+    private String description;
 
-    public Book(String bookName, String ISBN, int yearPub, String author) {
+    public Book(String bookName, String ISBN, int yearPub, String author, String description) {
         this.bookName = bookName;
         this.ISBN = ISBN;
         this.yearPub = yearPub;
         this.author = author;
+        this.description = description;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-    
     public String getBookName() {
         return bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
     }
 
     public String getISBN() {
         return ISBN;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
-    }
-
     public int getYearPub() {
         return yearPub;
     }
-
-    public void setYearPub(int yearPub) {
-        this.yearPub = yearPub;
+  
+    public String getDescription() {
+        return description;
     }
     
-    
+    public String details(){
+        return "Written by : "+this.author+"\nIn the year : "+this.yearPub+"\nISBN : "+this.ISBN;
+    }
 }
