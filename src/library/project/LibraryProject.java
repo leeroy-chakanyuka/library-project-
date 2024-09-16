@@ -63,14 +63,13 @@ public class LibraryProject {
         
         String returnString ="";
         for(Book book : books){
-            if(book.getBookName().equalsIgnoreCase(crit)){
-                
-            returnString = "Yes we do have that book \n" ;
-                return 
+            if(book.getBookName().equalsIgnoreCase(crit)){ 
+            returnString = "Yes we do have that book \n" + book.toString() ;
+                return returnString;
             }
-        }
+        
         return "";
    
     
-    
-}
+        }
+}}
