@@ -9,18 +9,7 @@ public class LibraryProject {
  
     public static void main(String[] args) {
         ArrayList<Book> books = new ArrayList<>();
-        
-        String searchMethod = JOptionPane.showInputDialog("<html>How would you like to look up your book?<br>Name, Author or ISBN</html>");
-        while(searchMethod.isEmpty()) {
-        searchMethod = JOptionPane.showInputDialog("You did not enter anything, please try again \t How would you like to look up your book? \t Name, Author or ISBN" +" \t or enter 0 to exit");
-        if (searchMethod.equals("0"))
-        break;}
-    }    
-    
-    
-    public String search (ArrayList<Book> books, String crit){
-        
-             books.add(new Book("The Great Adventure", "123-456-789", 2001, "John Doe",
+            { books.add(new Book("The Great Adventure", "123-456-789", 2001, "John Doe",
             "Embark on a thrilling journey with a team of intrepid explorers as they traverse diverse landscapes and uncover long-lost secrets. This gripping tale of discovery is filled with danger, excitement, and unexpected twists."));
         
         books.add(new Book("Mystery of the Lost Island", "123-456-790", 2002, "Jane Smith",
@@ -153,16 +142,36 @@ public class LibraryProject {
             "A fantastical story about a mythical phoenix whose return signals a time of great change. As the phoenix rises, its influence brings hope and challenges to those who encounter it."));
         
         books.add(new Book("The Midnight Sun", "123-456-833", 2045, "Sofia Collins",
-            "An evocative tale set in a land where the sun never sets, revealing a unique world of eternal twilight. The characters’ journey through this mesmerizing landscape uncovers secrets and tests their resilience."));
-    
+            "An evocative tale set in a land where the sun never sets, revealing a unique world of eternal twilight. The characters’ journey through this mesmerizing landscape uncovers secrets and tests their resilience."));}
         
-        String returnString ="";
+        String searchMethod = JOptionPane.showInputDialog("<html>How would you like to look up your book?<br>Name, Author or ISBN</html>");
+        while(searchMethod.isEmpty()) {
+        searchMethod = JOptionPane.showInputDialog("You did not enter anything, please try again \t How would you like to look up your book? \t Name, Author or ISBN" +" \t or enter 0 to exit");
+        if (searchMethod.equals("0")){
+        break;}
+        else{
+            search(books, searchMethod);
+        }}
+    }    
+    
+    
+    public static void search (ArrayList<Book> books, String crit){
+        
+    
+        System.out.println("Got here");
         for(Book book : books){
-            if(book.getBookName().equalsIgnoreCase(crit)){ 
-            returnString = "Yes we do have that book \n" + book.toString() ;
-                return returnString;
+            if(crit.equalsIgnoreCase("Name")){
+                String bookName = JOptionPane.showInputDialog("Enter the Name of the book");
+               if(book.getBookName().equalsIgnoreCase(bookName)){ 
+                JOptionPane.showMessageDialog(null, "Yes we do have that book");
+                JOptionPane.showMessageDialog(null, "Further details are\n"+book.toString());
+                JOptionPane.showMessageDialog(null, book.getBookName()+ ", "+book.getDescription());
             }
+            }else{
+                   System.out.println("here");
+               }
+            
         
         }
-        return "We do Not have that book on our shelves, sorry :/";
+        
 }}
